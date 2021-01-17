@@ -1,0 +1,85 @@
+ALGORITHM prob1_sol1
+VAR 
+    a: ARRAY_OF INTEGER[5];
+    b: ARRAY_OF INTEGER[5];
+    sum: INTEGER=0;
+
+BEGIN
+     FOR i FROM 0 to  a.length DO 
+         FOR j FROM 0 to  b.length DO 
+            IF (a[i] <> b[j]) THEN
+              
+              sum := sum + a[i] + b[j]
+        
+    
+        
+    END_FOR
+    END_FOR
+END
+
+
+
+
+
+
+
+
+
+
+ALGORITHM prob1_so2
+VAR
+   // declaring hash table
+   htab1 : HASH_TABLE<INTEGER,INTEGER>
+   htab2 : HASH_TABLE<INTEGER,INTEGER>
+   sum = 0
+BEGIN
+ FOR i FROM 0 to keys[htab1].length-1 DO 
+   FOR j FROM 0 to keys[htab2].length-1 DO
+      IF htab1.getvalue[keys[i]] <> htab2.getValue[keys[j]] THEN
+         sum:= sum + htab1.getValue[keys[i]] + htab2.getValue[keys[j]]
+END_FOR
+
+    
+END
+
+
+
+
+ALGORITHM prob2_sol1
+VAR 
+    a: ARRAY_OF INTEGER[5];
+    b: ARRAY_OF INTEGER[5];
+    sum: INTEGER=0;
+
+BEGIN
+    FOR i FROM 0 to  a.length DO 
+        FOR j FROM 0 to b.length DO
+            IF (a[i] == b[j]) THEN
+              
+              sum := sum + a[i] + b[j]
+        
+    
+        
+    END_FOR
+    END_FOR
+END
+
+
+
+
+ALGORITHM prob2_so;2
+VAR
+   // declaring hash table
+   htab1 : HASH_TABLE<INTEGER,INTEGER>
+   htab2 : HASH_TABLE<INTEGER,INTEGER>
+   sum = 0
+BEGIN
+ FOR i FROM 0 to keys[htab1].length-1 DO 
+   FOR j FROM 0 to keys[htab2].length-1 DO
+      IF htab1.getvalue[keys[i]] == htab2.getvalue[keys[j]] THEN
+         sum:= sum + (htab1.getvalue[keys[i]]*2)
+END_FOR
+
+END
+
+
