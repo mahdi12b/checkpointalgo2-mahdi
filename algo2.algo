@@ -5,8 +5,8 @@ VAR
     sum: INTEGER=0;
 
 BEGIN
-     FOR i FROM 0 to  a.length DO 
-         FOR j FROM 0 to  b.length DO 
+     FOR i FROM 0 to  a.length-1 DO 
+         FOR j FROM 0 to  b.length-1 DO 
             IF (a[i] <> b[j]) THEN
               
               sum := sum + a[i] + b[j]
@@ -52,8 +52,8 @@ VAR
     sum: INTEGER=0;
 
 BEGIN
-    FOR i FROM 0 to  a.length DO 
-        FOR j FROM 0 to b.length DO
+    FOR i FROM 0 to  a.length-1 DO 
+        FOR j FROM 0 to b.length-1 DO
             IF (a[i] == b[j]) THEN
               
               sum := sum + a[i] + b[j]
