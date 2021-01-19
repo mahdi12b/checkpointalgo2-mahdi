@@ -3,19 +3,18 @@ VAR
     a: ARRAY_OF INTEGER[5];
     b: ARRAY_OF INTEGER[5];
     sum: INTEGER=0;
-
+    j,i:INTEGER =0
 BEGIN
      FOR i FROM 0 to  a.length-1 DO 
-         FOR j FROM 0 to  b.length-1 DO 
-            IF (a[i] <> b[j]) THEN
-              
-              sum := sum + a[i] + b[j]
-        
-    
-        
+       IF (a[i] <> b[j]) DO
+         j++
+        ELSE 
+           sum := sum + (a[i]*2)
+    END_IF
     END_FOR
-    END_FOR
+    Write(sum)
 END
+
 
 
 
@@ -50,13 +49,18 @@ VAR
     a: ARRAY_OF INTEGER[5];
     b: ARRAY_OF INTEGER[5];
     sum: INTEGER=0;
+    i,j:INTEGER= 0;
 
 BEGIN
     FOR i FROM 0 to  a.length-1 DO 
-        FOR j FROM 0 to b.length-1 DO
-            IF (a[i] == b[j]) THEN
+       if(a[i]=b[j]) DO
+       j++
+       ELSE
+
+    FOR j FROM 0 to b.length-1 DO
+    if(a[i]=b[j]) DO
+      
               
-              sum := sum + a[i] + b[j]
         
     
         
@@ -81,5 +85,70 @@ BEGIN
 END_FOR
 
 END
+
+ALGORITHM prob1sol1
+VAR
+    tab1
+BEGIN
+    set_instructions
+END
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
