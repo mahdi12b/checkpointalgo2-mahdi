@@ -58,35 +58,30 @@ BEGIN
 END
 
 
-
-
-
-
-
-ALGORITHM naive_solution1
-VAR
-    set1,set2 : ARRAY_OF INTEGER[20];
-    i,j : INTEGER;
-    sum : INTEGER :=  0;
-    found : BOOLEAN;
+ALGORITHM prob1_sol1
+VAR 
+    a: ARRAY_OF INTEGER[5];
+    b: ARRAY_OF INTEGER[5];
+    sum: INTEGER=0;
+    j,i:INTEGER =0
 BEGIN
-    // reading elements in the two sets
-
-    // Compare each element of set one with the second set 
-    // and if element is not present then add that element to sum.
-
-    FOR i FROM 0 TO set1.length-1 DO
-        found := FALSE;
-        FOR j FROM 0 TO set2.length-1 DO
-            IF(set1[i] = set2[j]) THEN
-                found := TRUE;
-                BREAK;
-            END
-        END_FOR
-        IF (NOT found) THEN
-            sum := sum + set1[i];
-        END_IF
+     FOR i FROM 0 to  a.length-1 DO 
+     FOR i FROM 0 to  a.length-1 DO
+       IF (a[i] <> b[j]) DO
+         sum:= 
+        ELSE 
+           sum += a[i]
+    END_IF
     END_FOR
+       FOR i FROM 0 to  a.length-1 DO 
+       IF (a[i] <> b[j]) DO
+         i++
+        ELSE 
+           sum += b[j3v c           ]
+    END_IF
+    END_FOR
+    Write(sum)
+END
 
     //Then do the vice versa to add elements from the second set. 
     FOR i FROM 0 TO set2.length-1 DO
