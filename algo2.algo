@@ -16,49 +16,94 @@ BEGIN
 END
 
 
-
-
-
-
-
-
-
-
-
-ALGORITHM prob1_so2
+ALGORITHM better_approach
 VAR
-   // declaring hash table
-   htab1 : HASH_TABLE<INTEGER,INTEGER>
-   htab2 : HASH_TABLE<INTEGER,INTEGER>
-   sum = 0
+    set1,set2 : ARRAY_OF INTEGER[20];
+    set_keys : ARRAY_OF INTEGER[40];
+    dict := HASH_TABLE<INTEGER,INTEGER>;
+    i, count : INTEGER;
+    sum : INTEGER := 0;
 BEGIN
- FOR i FROM 0 to keys[htab1].length-1 DO 
-   FOR j FROM 0 to keys[htab2].length-1 DO
-      IF htab1.getvalue[keys[i]] <> htab2.getValue[keys[j]] THEN
-         sum:= sum + htab1.getValue[keys[i]] + htab2.getValue[keys[j]]
-END_FOR
+    // reading elements in the two sets
 
-    
+    // Insert all the elements from
+    // both the sets with the element as key and its count (in both arrays).
+
+    FOR i FROM 0 TO set1.length -1 STEP 1  DO
+        IF (dict.lookup(set1[i]) = TRUE) THEN
+            count := dict.get(set1[i]);
+            dict.insert(set1[i],count+1);
+        ELSE
+            dict.insert(set1[i],1);
+        END_IF
+    END_FOR
+
+    FOR i FROM 0 TO set2.length -1 STEP 1  DO
+        IF (dict.lookup(set2[i]) = TRUE) THEN
+            count := dict.get(set2[i]);
+            dict.insert(set2[i],count+1);
+        ELSE
+            dict.insert(set2[i],1);
+        END_IF
+    END_FOR
+
+    //get sum of distinct elements
+    set_keys := dict.getKeys();
+    FOR i FROM 0 TO set_keys.length -1 STEP 1  DO
+        IF (dict.get(set_keys[i]) = 1) THEN
+            sum := sum +set_keys[i];
+        END_IF
+    END_FOR
+
 END
 
 
 
 
-ALGORITHM prob2_sol1
-VAR 
-    a: ARRAY_OF INTEGER[5];
-    b: ARRAY_OF INTEGER[5];
-    sum: INTEGER=0;
-    i,j:INTEGER= 0;
 
+
+
+ALGORITHM naive_solution1
+VAR
+    set1,set2 : ARRAY_OF INTEGER[20];
+    i,j : INTEGER;
+    sum : INTEGER :=  0;
+    found : BOOLEAN;
 BEGIN
-    FOR i FROM 0 to  a.length-1 DO 
-       if(a[i]=b[j]) DO
-       j++
-       ELSE
+    // reading elements in the two sets
 
-    FOR j FROM 0 to b.length-1 DO
-    if(a[i]=b[j]) DO
+    // Compare each element of set one with the second set 
+    // and if element is not present then add that element to sum.
+
+    FOR i FROM 0 TO set1.length-1 DO
+        found := FALSE;
+        FOR j FROM 0 TO set2.length-1 DO
+            IF(set1[i] = set2[j]) THEN
+                found := TRUE;
+                BREAK;
+            END
+        END_FOR
+        IF (NOT found) THEN
+            sum := sum + set1[i];
+        END_IF
+    END_FOR
+
+    //Then do the vice versa to add elements from the second set. 
+    FOR i FROM 0 TO set2.length-1 DO
+        found := FALSE;
+        FOR j FROM 0 TO set1.length-1 DO
+            IF(set2[i] = set1[j]) THEN
+                found := TRUE;
+                BREAK;
+            END
+        END_FOR
+        IF (NOT found) THEN
+            sum := sum + set2[i];
+        END_IF
+    END_FOR
+
+    Write(sum);
+END
       
               
         
@@ -71,30 +116,46 @@ END
 
 
 
-ALGORITHM prob2_so;2
+ALGORITHM better_approach
 VAR
-   // declaring hash table
-   htab1 : HASH_TABLE<INTEGER,INTEGER>
-   htab2 : HASH_TABLE<INTEGER,INTEGER>
-   sum = 0
+    set1,set2 : ARRAY_OF INTEGER[20];
+    set_keys : ARRAY_OF INTEGER[40];
+    dict := HASH_TABLE<INTEGER,INTEGER>;
+    i, count : INTEGER;
+    sum : INTEGER := 0;
 BEGIN
- FOR i FROM 0 to keys[htab1].length-1 DO 
-   FOR j FROM 0 to keys[htab2].length-1 DO
-      IF htab1.getvalue[keys[i]] == htab2.getvalue[keys[j]] THEN
-         sum:= sum + (htab1.getvalue[keys[i]]*2)
-END_FOR
+    // reading elements in the two sets
+
+    // Insert all the elements from
+    // both the sets with the element as key and its count (in both arrays).
+
+    FOR i FROM 0 TO set1.length -1 STEP 1  DO
+        IF (dict.lookup(set1[i]) = TRUE) THEN
+            count := dict.get(set1[i]);
+            dict.insert(set1[i],count+1);
+        ELSE
+            dict.insert(set1[i],1);
+        END_IF
+    END_FOR
+
+    FOR i FROM 0 TO set2.length -1 STEP 1  DO
+        IF (dict.lookup(set2[i]) = TRUE) THEN
+            count := dict.get(set2[i]);
+            dict.insert(set2[i],count+1);
+        ELSE
+            dict.insert(set2[i],1);
+        END_IF
+    END_FOR
+
+    //sum all the elements with count=2.
+    set_keys := dict.getKeys();
+    FOR i FROM 0 TO set_keys.length -1 STEP 1  DO
+        IF (dict.get(set_keys[i]) = 2) THEN
+            sum := sum +set_keys[i];
+        END_IF
+    END_FOR
 
 END
-
-ALGORITHM prob1sol1
-VAR
-    tab1
-BEGIN
-    set_instructions
-END
-
-
-
 
 
 
